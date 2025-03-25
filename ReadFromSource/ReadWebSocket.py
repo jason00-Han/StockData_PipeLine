@@ -5,10 +5,7 @@ load_dotenv()
 
 app = FastAPI()
 
-@app.get("/client")
-async def client(request: Request):
-    # /templates/client.html파일을 response함
-    return templates.TemplateResponse("client.html", {"request":request})
+KAFKA_BROKER = "localhost:29092"
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
